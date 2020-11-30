@@ -1,0 +1,48 @@
+<%= render "shared/second_header" %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @dictionary.word %>
+    </h2>
+    <div class='item-img-content'>
+      <%= image_tag @dictionary.image, class:"item-box-img" %>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        
+        <tr>
+          <th class="detail-item">Title</th>
+          <td class="detail-value"><%= @dictionary.word%></td>
+        </tr>
+         <tr>
+          <th class="detail-item">Phonic</th>
+          <td class="detail-value"><%= @dictionary.pronunciation %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Meaning(Japanese)</th>
+          <td class="detail-value"><%= @dictionary.meaning %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Definition</th>
+          <td class="detail-value"><%= @dictionary.definition %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Speech</th>
+          <td class="detail-value"><%= @dictionary.speech.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Level</th>
+          <td class="detail-value"><%= @dictionary.level.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Created by</th>
+          <td class="detail-value"><%= @dictionary.user.username %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% if user_signed_in? && current_user.id == @dictionary.user.id %>
+      <%= link_to 'Edit', edit_dictionary_path(@dictionary.id), method: :get, class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to 'Delete', dictionary_path(@dictionary.id), method: :delete, class:'item-destroy' %>
+    <% end %>
+<%= render "shared/footer" %>

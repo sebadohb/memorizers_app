@@ -1,0 +1,50 @@
+<%= render "shared/main_header" %>
+
+<section id="showcase">
+  <div class="container">
+    <h1>To be a fast learner</h1>
+    <p>Technology has the power of making everything easier. There are plenty of websites, online tools, and smartphone/tablet apps that will boost your skills of planning, writing, time management and brainstorming, etc.One way of improving your productivity is using flashcards</p>
+  </div>
+<section>
+
+<section id="newsletter">
+  <div class="container">
+    <h2>Find new words</h2>
+    <form>
+      <input type="email" placeholder="Enter a Word">
+      <button type="submit" class="button_1">Search</button>
+    </form>
+  </div>
+</section>
+
+
+<div class='item-contents'>
+  <h2 class='title'>New words </h2>
+  <%= link_to '', "#", class: "subtitle" %>
+    <ul class='item-lists'>
+    <%# <% if @items.present? %>
+      <li class='list'>
+    <% @dictionaries.each do |dictionary|%>
+      <%= link_to dictionary_path(dictionary.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag dictionary.image, class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= dictionary.word %>
+          </h3>
+          <div class='item-price'>
+            <span><%= dictionary.meaning %><br></span>
+            <div class='star-btn'>
+              <%# <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>created by <%= dictionary.user.username %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %> 
+      </li>
+    </ul>
+</div>
+
+<%= render "shared/footer" %>   
