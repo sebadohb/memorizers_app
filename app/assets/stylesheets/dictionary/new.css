@@ -115,15 +115,20 @@
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
-  width: 100%;
+  width: 50%;
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;
+  box-shadow:0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 40px;
 }
 .back-btn {
   background: #aaa;
   border: 1px solid #aaa;
   color: #fff;
   padding: 15px 35%;
+  width: 50%;
+  height: 50px;
   text-decoration: none;
 }

@@ -1,0 +1,61 @@
+<%= render "shared/main_header" %>
+
+<section id="flashcard-showcase">
+  <div class="container">
+    <h1>Your flashcards</h1>
+  </div>
+</section>
+
+<section id="newsletter">
+  <div class="container">
+    <h2>Find flashcards</h2>
+    <form>
+      <input type="email" placeholder="Enter a Word">
+      <button type="submit" class="button_1">Search</button>
+    </form>
+  </div>
+</section>
+
+<div class='flashcard-contents'> 
+  <h2 class='title'>Flash Cards</h2>
+  <ul class="card-lists">
+  <% @dictionaries.each do |dictionary|%>
+  <li class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <%= image_tag dictionary.image, class: "card-img" %>
+      </div>
+      <%= link_to dictionary_path(dictionary.id), class: "edit" do%>
+      <div class="flip-card-back">
+        <div class="flip-card-container">
+          <div class="flip-card-title">
+            <h3><%= dictionary.word %></h3>
+          </div>
+
+          <div class="flip-card-contents">
+             <%= dictionary.definition %>
+             <div class="flip-card-bottom">
+               <% if user_signed_in? %>
+                <% if current_user.already_bookmarked?(dictionary)%>
+                 <%= link_to dictionary_bookmarks_path(dictionary),method: :delete, class: "edit" do %>
+                   <i class="fas fa-bookmark bookmark_blue" aria-hidden="true"></i>
+                 <% end %>
+                 <%= dictionary.bookmarks.count %>
+                <% else%>
+                  <%= link_to dictionary_bookmarks_path(dictionary),method: :post, class: "edit" do %>
+                    <i class="fas fa-bookmark bookmark_white" aria-hidden="true"></i>
+                  <% end %>
+                  <%= dictionary.bookmarks.count %>
+                <% end %>
+               <% end %>
+             </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </li>
+  <% end %>
+  </ul>
+</div>
+<%= render "shared/footer" %>

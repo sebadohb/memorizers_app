@@ -19,7 +19,9 @@ class DictionariesController < ApplicationController
     end
   end
 
-  def show 
+  def show
+    @comment = Comment.new
+    @comments = @dictionary.comments.order(created_at: :desc)
   end
 
   def edit
@@ -38,7 +40,14 @@ class DictionariesController < ApplicationController
     @dictionary.destroy
     redirect_to root_path
   end
+
+  def bookmarks
+    @dictionaries = current_user.bookmark_dictionaries.includes(:user).order('created_at DESC')
+  end
   
+  def flashcards
+    @dictionaries = current_user.bookmark_dictionaries.includes(:user).order("RAND()").limit(4)
+  end
 
   private
   def set_dictionary
