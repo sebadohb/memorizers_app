@@ -1,5 +1,5 @@
-<%= render "shared/second_header" %>
- <div class="items-sell-contents">
+<%= render "shared/main_header" %>
+<div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title"> Enter new word</h2>
     <%= form_with(model: @dictionary, local: true) do |f| %>
@@ -10,52 +10,59 @@
            <cite>Word image</cite>
         </div>
         <div class="click-upload">
-         <p>クリックしてファイルをアップロード</p>
+         <p>Click and upload img</p>
          <%= f.file_field :image, id:"item-image" %>
         </div>
       </div>
 
       <div class="new-items">
-      <div class="weight-bold-text">
-        <cite>New word</cite>
-      </div>
+        <div class="weight-bold-text">
+          <cite>New word</cite>
+        </div>
        <%= f.text_area :word, class:"items-text", id:"item-name", placeholder:"e.g dog", maxlength:"40" %>
+      </div>
 
       <div class="new-items">
-      <div class="weight-bold-text">
-         <cite>Phonetic</cite>
-      </div>
+        <div class="weight-bold-text">
+          <cite>Phonetic</cite>
+        </div>
        <%= f.text_area :pronunciation, class:"items-text", id:"item-name", placeholder:"e.g. /dˈɔːg", maxlength:"40" %>
+      </diV>
 
       <div class="new-items">
         <div class="weight-bold-text">
           <cite>Meaning</cite>
         </div>
+          <%= f.text_area :meaning, class:"items-text", id:"item-name", placeholder:"犬", maxlength:"40" %>
       </div>
-       <%= f.text_area :meaning, class:"items-text", id:"item-name", placeholder:"犬", maxlength:"40" %>
        
        <div class="items-explain">
          <div class="weight-bold-text">
            <cite>Definiton</cite>
          </div>
-         <%= f.text_area :definition, class:"items-text", id:"item-info", placeholder:"e.g. especially : a highly variable domestic mammal (Canis familiaris) closely related to the gray wolf" ,rows:"7" ,maxlength:"1000" %>
+           <%= f.text_area :definition, class:"items-text", id:"item-info", placeholder:"e.g. especially : a highly variable domestic mammal (Canis familiaris) closely related to the gray wolf" ,rows:"7" ,maxlength:"1000" %>
        </div>
+
        <div class="items-detail">
          <div class="form">
            <div class="weight-bold-text"><cite>Speech</cite></div>
+           <%= f.collection_select(:speech_id, Speech.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
          </div>
-          <%= f.collection_select(:speech_id, Speech.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+           
        </div>
+
         <div class="items-detail">
-         <div class="form">
-           <div class="weight-bold-text"><cite>Level</cite></div>
+          <div class="form">
+             <div class="weight-bold-text"><cite>Level</cite></div>
+             <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
          </div>
-          <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
        </div>
+    <div class="container">
        <div class="sell-btn-contents">
          <%= f.submit "create" ,class:"sell-btn" %>
-         <%=link_to 'top', root_path, class:"back-btn" %>
        </div>
+    </div>
     <% end %>
   </div>
- </div>
+</div>
+<%= render "shared/footer" %>

@@ -1,14 +1,16 @@
   <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">Memorizers</span><h1>
+          <h1><span><%= link_to "Memorizers", "/", class: "highlight" %></span><h1>
         </div>
         <nav>
           <ul>
           <% if user_signed_in? %>
-            <li class="current"><%= link_to current_user.username, "#", class: "nav-item" %></li>
+            <li class="current"><%= link_to current_user.username, user_path(current_user), class: "nav-item" %></li>
             <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-item"%></li>
             <li><%= link_to 'Create', new_dictionary_path,  class: "nav-item"%></li>
+            <li><%= link_to 'Bookmark', bookmarks_dictionaries_path,  class: "nav-item"%></li>
+            <li><%= link_to 'flashcards', flashcards_dictionaries_path,  class: "nav-item"%></li>
           <% else %>
             <li><%= link_to 'Log in', new_user_session_path, class: "nav-item"%></li>
             <li><%= link_to 'Sign up', new_user_registration_path, class: "nav-item"%></li>

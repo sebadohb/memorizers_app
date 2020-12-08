@@ -1,0 +1,9 @@
+.card-contents {
+  background-image: image-url('background-black.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat 0 -400px;
+  display: flex;
+  align-items: center;
+  padding: 10vh 0;
+  flex-wrap: wrap;
+}

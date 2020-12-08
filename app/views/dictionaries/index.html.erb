@@ -3,9 +3,9 @@
 <section id="showcase">
   <div class="container">
     <h1>To be a fast learner</h1>
-    <p>Technology has the power of making everything easier. There are plenty of websites, online tools, and smartphone/tablet apps that will boost your skills of planning, writing, time management and brainstorming, etc.One way of improving your productivity is using flashcards</p>
+    <p>Technology has the power of making everything easier. There are plenty of websites, online tools, and smartphone/tablet apps that will boost your skills of planning, writing, time management and brainstorming, etc.One way of improving your productivity is using Memorizers as flashcards</p>
   </div>
-<section>
+</section>
 
 <section id="newsletter">
   <div class="container">
@@ -17,34 +17,46 @@
   </div>
 </section>
 
+<div class='item-contents'> 
+  <h2 class='title'>New Flash Cards</h2>
+  <ul class="card-lists">
+  <% @dictionaries.each do |dictionary|%>
+  <li class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <%= image_tag dictionary.image, class: "card-img" %>
+      </div>
+      <%= link_to dictionary_path(dictionary.id), class: "edit" do%>
+      <div class="flip-card-back">
+        <div class="flip-card-container">
+          <div class="flip-card-title">
+            <h3><%= dictionary.word %></h3>
+          </div>
 
-<div class='item-contents'>
-  <h2 class='title'>New words </h2>
-  <%= link_to '', "#", class: "subtitle" %>
-    <ul class='item-lists'>
-    <%# <% if @items.present? %>
-      <li class='list'>
-    <% @dictionaries.each do |dictionary|%>
-      <%= link_to dictionary_path(dictionary.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag dictionary.image, class: "item-img" %>
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= dictionary.word %>
-          </h3>
-          <div class='item-price'>
-            <span><%= dictionary.meaning %><br></span>
-            <div class='star-btn'>
-              <%# <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>created by <%= dictionary.user.username %></span>
-            </div>
+          <div class="flip-card-contents">
+             <%= dictionary.definition %>
+             <div class="flip-card-bottom">
+               <% if user_signed_in? %>
+                <% if current_user.already_bookmarked?(dictionary)%>
+                 <%= link_to dictionary_bookmarks_path(dictionary),method: :delete, class: "edit" do %>
+                   <i class="fas fa-bookmark bookmark_blue" aria-hidden="true"></i>
+                 <% end %>
+                 <%= dictionary.bookmarks.count %>
+                <% else%>
+                  <%= link_to dictionary_bookmarks_path(dictionary),method: :post, class: "edit" do %>
+                    <i class="fas fa-bookmark bookmark_white" aria-hidden="true"></i>
+                  <% end %>
+                  <%= dictionary.bookmarks.count %>
+                <% end %>
+               <% end %>
+             </div>
           </div>
         </div>
       <% end %>
-    <% end %> 
-      </li>
-    </ul>
+      </div>
+    </div>
+  </li>
+  <% end %>
+  </ul>
 </div>
-
-<%= render "shared/footer" %>   
+<%= render "shared/footer" %>

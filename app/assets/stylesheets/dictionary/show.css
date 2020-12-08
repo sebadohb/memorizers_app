@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vh 0;
 }
 
 .item-box {
@@ -15,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .item-box>.name {
@@ -29,6 +29,8 @@
   min-height: 500px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
+  border-radius: 10px;
+  box-shadow:0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .item-price-box {
@@ -50,12 +52,14 @@
 
 .item-red-btn {
   text-align: center;
-  background-color: #ea352d;
+  background-color: #34568B;
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
   margin: 20px 0px;
   padding: 2vh 10vw;
+  border-radius: 10px;
+  box-shadow:0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .or-text {
@@ -63,12 +67,15 @@
 }
 
 .item-destroy {
-  background-color: lightgray;
   text-align: center;
+  background-color:#9B2335;
   font-size: 24px;
-  color: black;
+  font-weight: bold;
+  color: #FFF;
   margin: 20px 0px;
   padding: 2vh 10vw;
+  border-radius: 10px;
+  box-shadow:0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .item-explain-box {
@@ -102,7 +109,7 @@
   position: relative;
 }
 
-.favorite-btn {
+.bookmark-btn {
   border-radius: 40px;
   width: 15vw;
   min-width: 200px;
