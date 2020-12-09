@@ -59,4 +59,5 @@
  - belongs_to :user
  - belongs_to :dictionaries
 
+![ER](memorize.png)
 
