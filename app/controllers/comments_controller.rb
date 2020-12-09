@@ -1,25 +1,24 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[destroy]
-
   def create
-    @comment = current_user.comments.build(comment_params)
-    @comment.save!
+    @dictionary = Dictionary.find(params[:dictionary_id])
+    @comment = @dictionary.comments.build(comment_params)
+    @comment.user_id = current_user.id
+      if @comment.save
+        redirect_to dictionary_path(@dictionary)
+      else
+        flash.now[:notice] = 'コメントの投稿に失敗しました'
+        render template: "dictionaries/show"
+      end
   end
 
   def destroy
-    @comment.destroy!
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to root_path
   end
 
   private
-
-  def set_comment
-    @comment = Comment.find_by(id: params[:id])
-  end
-
   def comment_params
-    params.require(:comment)
-          .permit(:content)
-          .merge(dictionary_id: params[:dictionary_id])
+    params.require(:comment).permit(:content, :dictionary_id, :user_id)
   end
-end
 end
