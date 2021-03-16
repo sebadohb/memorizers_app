@@ -55,6 +55,12 @@
 
 ## マイフラッシュカードページ
 　<a href="https://gyazo.com/31221782ca7c5b78c47f318a70162809"><img src="https://i.gyazo.com/31221782ca7c5b78c47f318a70162809.jpg" alt="Image from Gyazo" width="600"/></a>
+## デプロイ後のURL
+  https://memorizers-123456.herokuapp.com/
+## テスト用アカウント
+   アカウント名： TEST
+　  email: test123456@example.com
+ password: test1234
  
  
 ## 利用方法
