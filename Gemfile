@@ -64,3 +64,4 @@ gem 'active_hash'
 gem 'font-awesome-rails'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem "aws-sdk-s3", require: false
