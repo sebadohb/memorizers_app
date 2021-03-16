@@ -58,9 +58,9 @@
 ## デプロイ後のURL
   https://memorizers-123456.herokuapp.com/
 ## テスト用アカウント
-   アカウント名： TEST
-　  email: test123456@example.com
- password: test1234
+   - アカウント名： TEST
+   - email: test123456@example.com
+   - password: test1234
  
  
 ## 利用方法
