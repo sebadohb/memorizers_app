@@ -38,10 +38,10 @@
              <div class="flip-card-bottom">
                <% if user_signed_in? %>
                 <% if current_user.already_bookmarked?(dictionary)%>
-                 <%= link_to dictionary_bookmarks_path(dictionary),method: :delete, class: "edit" do %>
-                   <i class="fas fa-bookmark bookmark_blue" aria-hidden="true"></i>
-                 <% end %>
-                 <%= dictionary.bookmarks.count %>
+                  <%= link_to dictionary_bookmarks_path(dictionary),method: :delete, class: "edit" do %>
+                    <i class="fas fa-bookmark bookmark_blue" aria-hidden="true"></i>
+                  <% end %>
+                  <%= dictionary.bookmarks.count %>
                 <% else%>
                   <%= link_to dictionary_bookmarks_path(dictionary),method: :post, class: "edit" do %>
                     <i class="fas fa-bookmark bookmark_white" aria-hidden="true"></i>

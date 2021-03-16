@@ -25,7 +25,7 @@
      </div>
   <div class="card-stats">
     <div class="stat">
-      <div class="value"><%= link_to"Edit", dictionary_path(dictionary.id), class: "edit" %></div>
+      <div class="value"><%= link_to"Edit", edit_dictionary_path(dictionary), class: "edit" %></div>
     </div>
     <div class="stat border">
       <div class="value">
@@ -42,8 +42,10 @@
       <div class="type"><%= dictionary.bookmarks.count%></div>
     </div>
     <div class="stat">
-      <div class="value">32</div>
-      <div class="type">comments</div>
+     <%= link_to dictionary_path(dictionary), class: "edit" do %>
+      <div class="value"><%= dictionary.comments.count%></div>
+      <div class="type">notes</div>
+     <% end %>
     </div>
   </div>
   </li>

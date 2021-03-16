@@ -1,7 +1,7 @@
 #showcase{
     min-height:400px;
     max-height:400px;
-    background-image: image-url('background-book.jpeg');
+    background-image: image-url('background-book.jpg');
     background-size: cover;
     background-repeat: no-repeat 0 -400px;
     text-align:center;
@@ -45,7 +45,7 @@
 /* New words index */
 
 .item-contents {
-  background-image: image-url('background-texture.jpeg');
+  background-image: image-url('background-yellow.jpg');
   background-size: cover;
   background-repeat: no-repeat 0 -400px;
   display: flex;
@@ -151,7 +151,7 @@
 #bookmark-showcase{
   min-height:400px;
   max-height:400px;
-  background-image: image-url('background-showcase.jpeg');
+  background-image: image-url('background-showcase.jpg');
   background-size: cover;
   background-repeat: no-repeat 0 -400px;
   text-align:center;
@@ -170,7 +170,7 @@
 #flashcard-showcase{
   min-height:400px;
   max-height:400px;
-  background-image: image-url('flashcard-showcase2.jpeg');
+  background-image: image-url('flashcard-showcase2.jpg');
   background-size: cover;
   background-repeat: no-repeat 0 -400px;
   text-align:center;
@@ -187,7 +187,7 @@
   text-shadow: rgb(24, 23, 21) 1px 0 10px;
 }
 .flashcard-contents {
-  background-image: image-url('background-board.jpeg');
+  background-image: image-url('background-board.jpg');
   background-size: cover;
   background-repeat: no-repeat 0 -400px;
   display: flex;

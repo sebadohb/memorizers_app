@@ -46,7 +46,7 @@ class DictionariesController < ApplicationController
   end
   
   def flashcards
-    @dictionaries = current_user.bookmark_dictionaries.includes(:user).order("RAND()").limit(4)
+    @dictionaries = current_user.bookmark_dictionaries.includes(:user).order("RAND()")
   end
 
   private

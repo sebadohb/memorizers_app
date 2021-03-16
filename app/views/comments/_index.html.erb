@@ -1,6 +1,6 @@
 <!-- コメント内容(２件) ------------------------------------------------------------------>
-<%= comments.count %>件コメント
-<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+<%= comments.count %>notes
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">read more...</h6>
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <li class="comment-container">
@@ -8,8 +8,10 @@
             <div class="comment-text">
                 <div class="comment-entry">
                     <%= comment.content %>
+                </div>
+                <div class="comment-entry">
                     <% if comment.user == current_user %>
-                        <%= link_to "削除", comment_path(comment.id), method: :delete, class: "comment_destroy"%>
+                        <%= link_to "delete", comment_path(comment.id), method: :delete, class: "comment_destroy"%>
                     <% end %>
                 </div>
                 <span class="comment-date pull-right">

@@ -1,5 +1,5 @@
 <!-- コメント入力フォーム ------------------------------------------------------------>
-<%= form_with(model: [dictionary, comment], url: dictionary_comments_path(@dictionary) ) do |f| %>
-    <%= f.text_area :content, class: "input-mysize" %>
-    <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
+<%= form_with(model: [dictionary, comment], url: dictionary_comments_path(@dictionary),local: true ) do |f| %>
+    <%= f.text_area :content, class: "comment-text" %>
+    <%= f.submit "submit", class: "comment-btn" %>
 <% end %>

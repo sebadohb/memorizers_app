@@ -1,0 +1,12 @@
+.comment-container{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  width: 70vw;
+}
+.comment-text{
+  box-shadow: 10px;
+}
+.row{
+  width:70vw;
+}
